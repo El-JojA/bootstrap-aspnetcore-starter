@@ -9,12 +9,12 @@ RUN dotnet restore
 RUN dotnet publish --output /app/ --configuration Release
 
 
-#FROM microsoft/aspnetcore:2.0.0
+FROM microsoft/aspnetcore:2.0.0
 
-#WORKDIR /app
+WORKDIR /app
 
-#COPY --from=builder /app .
+COPY --from=builder /app .
 
-#COPY --from=builder /sources/App_Data App_Data
+COPY --from=builder /sources/Data Data
 
-#ENTRYPOINT ["dotnet", "bootstrap-starter.dll"]
+ENTRYPOINT ["dotnet", "bootstrap-starter.dll"]
